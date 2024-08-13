@@ -31,12 +31,18 @@ jobs:
       - uses: actions-rs/grcov@v0.1.5
         id: coverage
 
-      - name: Coveralls upload
-        uses: coverallsapp/github-action@master
+#      - name: Coveralls upload
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          path-to-lcov: ${{ steps.coverage.outputs.report }}
+#          debug: true
+
+      - name: Codecov upload
+        uses: codecov/codecov-action@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ${{ steps.coverage.outputs.report }}
-          debug: true
+          file: ${{ steps.coverage.outputs.report }}
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload artifact for coverage
         uses: actions/upload-artifact@v2
