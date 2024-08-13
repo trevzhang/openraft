@@ -10,3 +10,4 @@ vendor
 Cargo.lock
 .DS_Store
 .vscode
+tests

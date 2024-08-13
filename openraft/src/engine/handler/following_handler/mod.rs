@@ -38,6 +38,9 @@ mod truncate_logs_test;
 #[cfg(test)]
 mod update_committed_membership_test;
 
+#[cfg(test)]
+mod hello_world;
+
 /// Receive replication request and deal with them.
 ///
 /// It mainly implements the logic of a follower/learner
